@@ -26,29 +26,29 @@ public class XiaoliangServiceImpl implements XiaoliangService {
         /*接受数据*/
        // xlist=xiaoliangDao.getXiaoliangList();
         //模拟数据库查询获取数据
-        Xiaoliang  x1= new Xiaoliang(5,"2018-04-24",1);
-        Xiaoliang  x2= new Xiaoliang(12,"2018-04-25",1);
-        Xiaoliang  x3= new Xiaoliang(13,"2018-04-26",1);
-        Xiaoliang  x4= new Xiaoliang(11,"2018-04-27",1);
-        Xiaoliang  x5= new Xiaoliang(11,"2018-04-28",1);
-        Xiaoliang  x6= new Xiaoliang(13,"2018-04-29",1);
-        Xiaoliang  x7= new Xiaoliang(14,"2018-04-30",1);
-        Xiaoliang  x8= new Xiaoliang(15,"2018-05-1",1);
-        Xiaoliang  x9= new Xiaoliang(12,"2018-05-2",1);
-        Xiaoliang  x10= new Xiaoliang(14,"2018-05-3",1);
-        Xiaoliang  x11= new Xiaoliang(15,"2018-05-4",1);
-        Xiaoliang  x12= new Xiaoliang(9,"2018-05-5",1);
-        Xiaoliang  x13= new Xiaoliang(12,"2018-05-6",1);
-        Xiaoliang  x14= new Xiaoliang(11,"2018-05-7",1);
-        Xiaoliang  x15= new Xiaoliang(11,"2018-05-8",1);
-        Xiaoliang  x16= new Xiaoliang(16,"2018-05-9",1);
+        Xiaoliang  x1= new Xiaoliang(0.05,"2018-07-24",1);
+        Xiaoliang  x2= new Xiaoliang(0.15,"2018-07-25",1);
+        Xiaoliang  x3= new Xiaoliang(0.1,"2018-07-26",1);
+        Xiaoliang  x4= new Xiaoliang(0.15,"2018-07-27",1);
+        Xiaoliang  x5= new Xiaoliang(0.15,"2018-07-28",1);
+        Xiaoliang  x6= new Xiaoliang(0.25,"2018-07-29",1);
+        Xiaoliang  x7= new Xiaoliang(0.1,"2018-07-30",1);
+        Xiaoliang  x8= new Xiaoliang(0.15,"2018-08-1",1);
+        Xiaoliang  x9= new Xiaoliang(0.1,"2018-08-2",1);
+        Xiaoliang  x10= new Xiaoliang(0.2,"2018-08-3",1);
+        Xiaoliang  x11= new Xiaoliang(0.15,"2018-08-4",1);
+        Xiaoliang  x12= new Xiaoliang(0.1,"2018-08-5",1);
+        Xiaoliang  x13= new Xiaoliang(0.15,"2018-08-6",1);
+        Xiaoliang  x14= new Xiaoliang(0.25,"2018-08-7",1);
+        Xiaoliang  x15= new Xiaoliang(0.1,"2018-08-8",1);
+        Xiaoliang  x16= new Xiaoliang(0.15,"2018-08-9",1);
         xlist.add(x1);
         xlist.add(x2);  xlist.add(x3);  xlist.add(x4);  xlist.add(x5);  xlist.add(x6);  xlist.add(x7);
         xlist.add(x7);  xlist.add(x8);  xlist.add(x9);  xlist.add(x10);  xlist.add(x11);  xlist.add(x12);
         xlist.add(x13);  xlist.add(x14);  xlist.add(x15); xlist.add(x16);
 
         /*创建装载月销量数组*/
-        int[] xxdata=new int[xlist.size()];
+        double[] xxdata=new double[xlist.size()];
         /*创建装载月份数组*/
         String[] xdata=new String[xlist.size()];
         /*定义数组下标*/

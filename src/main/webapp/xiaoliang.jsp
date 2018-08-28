@@ -26,13 +26,17 @@
     var myChart = echarts.init(document.getElementById('main'));
     myChart.setOption({
         title:{
-            text:'echarts销量统计'
+            text:'echarts统计'
         },
         tooltip:{
 
         },
         legend:{
-            data:['销量']
+            data:['资源占比']
+        },
+        grid: {
+            left: '10%',
+            bottom:'20%'
         },
         xAxis:{
             data:[],
@@ -65,13 +69,13 @@
 
         series:[
             {
-                name:'销量',
+                name:'资源占比',
                 type:'line',
+
                 data:[]
             },
         ]
     });
-
 
     $.post(
         "<%=request.getContextPath()%>/xiaoliang/findAll.do",
@@ -83,8 +87,12 @@
                 },
                 series:[
                     {
-                        name:'销量',
-                        data:data.xcount
+                        name:'资源占比',
+                        data:data.xcount,
+                        axisLabel:{
+
+                            formatter:"{value}%"
+                        }
                     },
                 ]
             });

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head><script type="text/javascript">
-    $(function() {
+   /* $(function() {
         //定义数据表格
         $('#userdg').datagrid({
             loadMsg: "Loading..",//远程加载展示字段
@@ -70,7 +70,7 @@
             toolbar:[
 
             ],
-            url:'${pageContext.request.contextPath}/deptinfo/findlist.do',
+
             //加入分页控件
             pagination : true,//底部展示工具栏
             pagePosition : 'bottom',//分页栏的位置
@@ -80,13 +80,13 @@
         });
     });
 
-
+*/
 </script>
 
 </head>
 
 <body>
-
+<h4>indext.jsp</h4>
 
 <table id="userdg" class="easyui-datagrid">
 </table>

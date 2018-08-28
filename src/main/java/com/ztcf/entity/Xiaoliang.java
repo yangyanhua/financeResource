@@ -1,11 +1,11 @@
 package main.java.com.ztcf.entity;
 
 public class Xiaoliang {
-    private  int xcount;
+    private  double xcount;
     private  String xname;
     private  int id ;
 
-    public void setXcount(int xcount) {
+    public void setXcount(double xcount) {
         this.xcount = xcount;
     }
 
@@ -13,7 +13,7 @@ public class Xiaoliang {
         this.id = id;
     }
 
-    public int getXcount() {
+    public double getXcount() {
         return xcount;
     }
 
@@ -29,7 +29,7 @@ public class Xiaoliang {
         this.xname = xname;
     }
 
-    public Xiaoliang(int xcount, String xname, int id) {
+    public Xiaoliang(double xcount, String xname, int id) {
         this.xcount = xcount;
         this.xname = xname;
         this.id = id;
