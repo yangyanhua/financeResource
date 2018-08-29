@@ -1,10 +1,13 @@
-package main.java.com.ztcf.controller;
+package com.ztcf.controller;
 
-import main.java.com.ztcf.service.XiaoliangService;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ztcf.service.XiaoliangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.Map;
 
 
@@ -16,7 +19,7 @@ public class XiaoliangController {
     private XiaoliangService xiaoliangService;
 
     @RequestMapping("/findAll.do")
-    public Map<String ,Object> findAll(){
+    public Map<String ,Object> findAll() throws ParseException {
 
         Map<String, Object> map = xiaoliangService.findList();
         return  map;

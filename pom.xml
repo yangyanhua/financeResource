@@ -23,7 +23,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
 
@@ -167,7 +167,12 @@
       <artifactId>asm</artifactId>
       <version>3.3.1</version>
     </dependency>
-
+   <!-- 时间格式jar-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+        <version>2.5.4</version>
+    </dependency>
     <dependency>
       <groupId>cglib</groupId>
       <artifactId>cglib</artifactId>
@@ -232,7 +237,13 @@
     <artifactId>goeasy-sdk</artifactId>
     <version>0.3.8</version>
   </dependency>
-</dependencies>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>compile</scope>
+      </dependency>
+  </dependencies>
 
 
 

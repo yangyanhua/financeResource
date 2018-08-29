@@ -1,12 +1,25 @@
-package main.java.com.ztcf.entity;
+package com.ztcf.entity;
 
-public class Xiaoliang {
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Xiaoliang implements Serializable {
     private  double xcount;
-    private  String xname;
+
+    private Date xname;
+
     private  int id ;
 
     public void setXcount(double xcount) {
         this.xcount = xcount;
+    }
+
+    public void setXname(Date xname) {
+
+        this.xname = xname;
     }
 
     public void setId(int id) {
@@ -16,8 +29,9 @@ public class Xiaoliang {
     public double getXcount() {
         return xcount;
     }
+   // @JsonFormat(pattern="yyyy-MM-dd ")
+    public Date getXname() {
 
-    public String getXname() {
         return xname;
     }
 
@@ -25,13 +39,22 @@ public class Xiaoliang {
         return id;
     }
 
-    public void setXname(String xname) {
-        this.xname = xname;
-    }
+    public Xiaoliang(double xcount, Date xname, int id) {
 
-    public Xiaoliang(double xcount, String xname, int id) {
         this.xcount = xcount;
+
         this.xname = xname;
         this.id = id;
+    }
+
+    @Override
+
+    public String toString() {
+
+        return "Xiaoliang{" +
+                "xcount=" + xcount +
+                ", xname='" + xname + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

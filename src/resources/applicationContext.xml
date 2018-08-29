@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--添加注解扫描  -->
-    <context:component-scan base-package="main.java.com.ztcf">
+    <context:component-scan base-package="com.ztcf">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -29,7 +29,7 @@
         <!--指定mapper文件位置 -->
         <property name="mapperLocations" value="classpath:/main/java/com/ztcf/mappers/*Mappers.xml"></property>
         <!--实体类起别名 别名为实体类名相同 -->
-        <property name="typeAliasesPackage" value="main.java.com.ztcf.entity"></property>
+        <property name="typeAliasesPackage" value="com.ztcf.entity"></property>
     </bean>
 
     <!--3配置创建dao实现类的对象 -->
@@ -37,7 +37,7 @@
         <!--引入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
         <!--指定接口所在的包 -->
-        <property name="basePackage" value="main.java.com.ztcf.dao"></property>
+        <property name="basePackage" value="com.ztcf.dao"></property>
     </bean>
 
 
