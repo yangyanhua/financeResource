@@ -2,6 +2,8 @@
 <%@ page import="java.util.Date" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@taglib  uri="http://java.sun.com/jsp/jstl/core"    prefix="c" %>
+<%@ taglib prefix="width" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="height" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 
@@ -25,28 +27,50 @@
     </table>
 <br>
     <form  id="form1" action="##"  method="post">
-          <input  name="start" onClick="WdatePicker({dateFmt:'yyyy/MM/dd',maxDate:'%y-%M-%d'})"  id= "start" type="text"   size="10">
-            至 <input   name="end" onClick="WdatePicker({dateFmt:'yyyy/MM/dd',maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'start\')}',})"  id= "end" type="text"   size="10">
+          <input  name="start"  style="background-color: #b8eecf" onClick="WdatePicker({dateFmt:'yyyy/MM/dd',maxDate:'%y-%M-%d'})"  id= "start" type="text"   size="10">
+            至 <input   name="end"  style="background-color: #b8eecf"onClick="WdatePicker({dateFmt:'yyyy/MM/dd',maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'start\')}',})"  id= "end" type="text"   size="10">
          <input name="button" onsubmit="return false" type="button" id="dp" value="查询" onclick="findxl()">
 
 
 
-        <input type="checkbox" value="分公司" onselect="true">
-        <select name="分公司">
+        <input type="checkbox" value="gs" onselect="true"  fontSize="3px">分公司</input>
+        <select name="gs">
             <option value="bj">北京</option>
             <option value="cs">长沙</option>
         </select>
-        <select name="营销方式">
+        <input type="checkbox" value="yx" onselect="true"  fontSize="3px">营销方式</input>
+        <select name="yx">
             <option value="bj">手动拨打</option>
             <option value="cs">渠道</option>
         </select>
 
     </form>
-
-
-
 </form>
-    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main" style="width: 700px;height:300px;position: relative;left:100px"></div>
+        <br> <br>
+<form   >
+    <div  align="right"  >
+    <input id="export" value="导出" type="submit" style="background-color: #b8eecf">
+        <select>
+            <option>自定义</option>
+        </select>
+    </div>
+    <table border="1px" width="100%" height="150px" >
+    <tr>
+        <td>日期</td> <td>资源数</td> <td>接通数</td> <td>同意加微信</td> <td>加成功数</td> <td>有效沟通数</td> <td>新单数</td> <td>新单额</td> <td>升级数</td> <td>升级额</td>
+        <td>接通率</td> <td>同意加率</td> <td>加成功率</td> <td>有效率</td> <td>新单成交率</td> <td>升级率</td> <td>新单产出比</td> <td>升级产出比</td> <td>总产出比</td>
+    </tr>
+    <tr>
+        <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+    </tr>
+    <tr>
+        <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+        <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+    </tr>
+    </table>
+</form>
+
 <script>
     /*初始化init echarts表格*/
     // 基于准备好的dom，初始化echarts实例
@@ -84,6 +108,7 @@
 
           //  }
             var option = {
+                backgroundColor: '#b8eecf',
              /*   dataZoom:[{
                     startValue: "2018-07-24"
                 },{
@@ -123,16 +148,10 @@
                 },
                 grid: {
                     left: '10%',
-                    bottom:'30%'
+                    bottom:'20%'
                 },
 
                  xAxis: {//x轴线坐标
-                   /*data: ["2018-07-24","2018-07-25","2018-07-26","2018-07-27","2018-07-28","2018-07-29",
-                         "2018-08-01","2018-08-02","2018-08-03","2018-08-04","2018-08-05","2018-08-06",
-                         "2018-08-07","2018-08-08","2018-08-09","2018-08-10","2018-08-11","2018-08-12"
-                         ,"2018-08-13","2018-08-14","2018-08-15"
-                     ],*/
-
                    // type: 'time',
                      axisTick: {//去掉轴线上的分割线
                          show: false
@@ -156,15 +175,15 @@
                      axisLabel:{
                          show:true,
                          interval:"0",
-                         rotate:60,
+                         rotate:20,
                          margin:24,
 
-                     //   data: [result.date.data] ,
+
                          formatter:"{value}日",
 
 
                          textStyle:{
-                             color:"blue",
+                             color:"#808080",
                              fontFamily:"sans-serif",
                              fontSize:4,
                              fontStyle:"italic",
@@ -176,11 +195,14 @@
 
                  },
                  yAxis: {
+
                      show:true,
-                     splitLine:{//坐标轴
-                         show:true
+                     //show: false,//隐藏y轴
+                     splitLine:{//坐标轴分割线
+                        show:true,
+
                      },
-                   //  data: result.sales.data,
+
                      axisLabel:{
 
                          formatter:"{value}%"
@@ -226,7 +248,7 @@
                 // 指定图表的配置项和数据
                 console.log("result+++++---"+result)
                 var option = {
-
+                    backgroundColor: '#b8eecf',
                     title: {
                         //text: 'ECharts统计图'
                     },
@@ -273,13 +295,13 @@
                         axisLabel:{
                             show:true,
                             interval:"0",
-                            rotate:45,
+                            rotate:20,
                             margin:24,
 
                             //   data: [result.date.data] ,
                             formatter:"{value}日",
                             textStyle:{
-                                color:"blue",
+                                color:"#808080",
                                 fontFamily:"sans-serif",
                                 fontSize:4,
                                 fontStyle:"italic",

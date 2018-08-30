@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>财务资源系统</title>
+    <title>zjcf财务资源系统</title>
 
     <%--引入goeasy的JS文件--%>
     <script src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
@@ -51,7 +51,7 @@
                 AddTab("广告费用", "${pageContext.request.contextPath }/echarts2.jsp" );
                 AddTab("销售费用", "${pageContext.request.contextPath }/ceshi.html" );
                 AddTab("渠道费用", "${pageContext.request.contextPath }/echarts2.jsp" );
-                AddTab("大数支出", "${pageContext.request.contextPath }/index.jsp" );
+                AddTab("大数支出", "${pageContext.request.contextPath }/echarts2.jsp" );
 
 
             })
@@ -90,25 +90,45 @@
         }
 */
 
-       /* function tabClose() {
-            /!*双击关闭TAB选项卡*!/
-            $(".tabs-inner").dblclick(function(){ //jQuery双击方法
-                var subtitle = $(this).text();
-                $('#tt').tabs('close',subtitle);
-            })
-        }*/
+        //这个事件的目的是：当我们点击时变色
+        function changeColor(obj)
+        {
+            //因为JS会把HTML标签当做一个对象
+            //对象.属性 = 值;
+            //判断对象是m1还是m2
+            var m1= $('#m1');//jq对象
+            var dm1=m1[0];//dom对象转换
+
+            var m2= $('#m2');
+            var dm2=m2[0];//dom对象转换
+
+            if(m1.is(obj)){
+                console.log("m1-1--"+dm1+"m2--1-"+dm2)
+                obj.style.background = '#b8eecf';
+                dm2.style.background = 'white';
+            }
+            if(m2.is(obj)){
+                console.log("m1-2--"+dm1+"m2--2-"+dm2)
+                obj.style.background = '#b8eecf';
+                dm1.style.background = 'white';
+
+            }
+
+
+        }
+
     </script>
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north',split:true" style="height:60px">
-    <div  align="center" style="font-size: 24px;color: darkred;font-family: 楷体;padding-top: 10px">财务资源系统</div>
+    <div  align="center" style="font-size: 24px;color: darkred;font-family: 楷体;padding-top: 10px">zjcf财务资源系统</div>
 </div>
 
 <div data-options="region:'west',title:'导航菜单',split:true" style="font-size: 18px;font-family: 楷体;width:200px;height:120px">
     <br>
-    <div id="m1"  class="tabs-inner"  style="position:absolute;background-color:#b8eecf;font-size: 18px;color: blue;font-family: 楷体">资源统计</div>
+    <div id="m1"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:40px;font-size: 18px;width:240px">资源统计</div>
     <br> <br> <br>
-    <div id="m2"  class="tabs-inner"  style="position:absolute;background-color:#b8eecf;font-size: 18px;color:blue;font-family: 楷体">费用结算</div>
+    <div id="m2"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:40px;font-size: 18px;width:240px">费用结算</div>
 </div>
 <div data-options="region:'center'" >
     <div id="tt" class="easyui-tabs" data-options="fit:true,pill:true,narrow:true" style="width:500px;height:250px;">
