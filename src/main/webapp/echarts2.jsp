@@ -46,16 +46,23 @@
 
     </form>
 </form>
-    <div id="main" style="width: 700px;height:300px;position: relative;left:100px"></div>
+<select id="select">
+    <option value="1">消费</option>
+    <option value="2">沟通</option>
+    <option value="3">产出</option>
+
+</select>
+    <div id="main" style="width: 800px;height:300px;position: relative;left:20px"></div>
+
         <br> <br>
 <form   >
-    <div  align="right"  >
-    <input id="export" value="导出" type="submit" style="background-color: #b8eecf">
+    <div   style="position: relative;left:670px" >
+        <input id="export" value="导出" type="submit" style="background-color: #b8eecf">
         <select>
             <option>自定义</option>
         </select>
     </div>
-    <table border="1px" width="100%" height="150px" >
+    <table border="1px" width="800px" height="150px" style="position: relative;left:20px">
     <tr>
         <td>日期</td> <td>资源数</td> <td>接通数</td> <td>同意加微信</td> <td>加成功数</td> <td>有效沟通数</td> <td>新单数</td> <td>新单额</td> <td>升级数</td> <td>升级额</td>
         <td>接通率</td> <td>同意加率</td> <td>加成功率</td> <td>有效率</td> <td>新单成交率</td> <td>升级率</td> <td>新单产出比</td> <td>升级产出比</td> <td>总产出比</td>
@@ -72,49 +79,50 @@
 </form>
 
 <script>
-    /*初始化init echarts表格*/
-    // 基于准备好的dom，初始化echarts实例
+
     var myChart = echarts.init(document.getElementById('main'));
+
     //发送ajax查询数据
     $.ajax({
+
         //url:"${pageContext.request.contextPath}/back/echats1.json",
         url:"${pageContext.request.contextPath}/xiaoliang/findAll.do",
         dataType:"json",
         type:"post",
         success:function (result) {
-          // var time=result.xname;
-          // console.log("time----"+time);
-           //13位时间戳转换为10位的
+            // var time=result.xname;
+            // console.log("time----"+time);
+            //13位时间戳转换为10位的
             //var str2int = parseInt(time);
             //var timeStampSec = (str2int/1000);
             //console.log("timeStampSec----"+timeStampSec);
-          // var timestamp = String.format("%010d", time);
-          // var xname=changeDate(result.xname);
-          //  console.log("xname----"+xname)
+            // var timestamp = String.format("%010d", time);
+            // var xname=changeDate(result.xname);
+            //  console.log("xname----"+xname)
 
             //var dt=time;
-           // var tstr = JSON.stringify(time);
-           // console.log("tstr----"+tstr)
+            // var tstr = JSON.stringify(time);
+            // console.log("tstr----"+tstr)
 
             //设置当前echarts表格的配置
             // 指定图表的配置项和数据
-           // var base =+new Date(2018,07,24);
-          //  var oneDay=24*3600;
-          //  var date=[Math.random()*300];
-          //  for (var i=1;i<20000;i++){
-             //   var now= new Date(base+=oneDay);
-              //  date.push([now.getFullYear(),now.getMonth()+1,now.getDate()].join('/'));
-              //  data.push(Math.round((Math.random()-0.5)*20+data[i-1]));
+            // var base =+new Date(2018,07,24);
+            //  var oneDay=24*3600;
+            //  var date=[Math.random()*300];
+            //  for (var i=1;i<20000;i++){
+            //   var now= new Date(base+=oneDay);
+            //  date.push([now.getFullYear(),now.getMonth()+1,now.getDate()].join('/'));
+            //  data.push(Math.round((Math.random()-0.5)*20+data[i-1]));
 
-          //  }
+            //  }
             var option = {
                 backgroundColor: '#b8eecf',
-             /*   dataZoom:[{
-                    startValue: "2018-07-24"
-                },{
-                    type:"inside"
+                /*   dataZoom:[{
+                       startValue: "2018-07-24"
+                   },{
+                       type:"inside"
 
-                }],*/
+                   }],*/
                 title: {
                     //text: 'ECharts统计图'
                 },
@@ -124,9 +132,9 @@
                     //data:['日期'],
 
 
-            },
+                },
                 tooltip:{
-                   // trigger:"axis",//提示框，该列所有坐标轴所对应的数据
+                    // trigger:"axis",//提示框，该列所有坐标轴所对应的数据
                     axisPointer:{
                         type:"cross",
                         label:{
@@ -141,9 +149,9 @@
                             }
                         }
                     },
-                  /*  formatter:function(data){
-                        return data.xname+"<br/>"+data.xcount+"%";
-                    }*/
+                    /*  formatter:function(data){
+                          return data.xname+"<br/>"+data.xcount+"%";
+                      }*/
 
                 },
                 grid: {
@@ -151,16 +159,16 @@
                     bottom:'20%'
                 },
 
-                 xAxis: {//x轴线坐标
-                   // type: 'time',
-                     axisTick: {//去掉轴线上的分割线
-                         show: false
-                     },
-                   //  show:true,
+                xAxis: {//x轴线坐标
+                    // type: 'time',
+                    axisTick: {//去掉轴线上的分割线
+                        show: false
+                    },
+                    //  show:true,
                     // splitLine:{//坐标轴
-                     //    show:true
+                    //    show:true
                     // },
-                     type:"category",
+                    type:"category",
                     // boundaryGap:false,
 
                     /* dataZoom:[{
@@ -169,51 +177,51 @@
                          type:"inside"
 
                      }],*/
-                   //  data:result.xname,
+                    //  data:result.xname,
 
-                     data:result.xname,
-                     axisLabel:{
-                         show:true,
-                         interval:"0",
-                         rotate:20,
-                         margin:24,
-
-
-                         formatter:"{value}日",
+                    data:result.xname,
+                    axisLabel:{
+                        show:true,
+                        interval:"0",
+                        rotate:20,
+                        margin:24,
 
 
-                         textStyle:{
-                             color:"#808080",
-                             fontFamily:"sans-serif",
-                             fontSize:4,
-                             fontStyle:"italic",
-                             fontWeight:"bold"
-                         }
+                        formatter:"{value}日",
 
 
-                     }
+                        textStyle:{
+                            color:"#808080",
+                            fontFamily:"sans-serif",
+                            fontSize:4,
+                            fontStyle:"italic",
+                            fontWeight:"bold"
+                        }
 
-                 },
-                 yAxis: {
 
-                     show:true,
-                     //show: false,//隐藏y轴
-                     splitLine:{//坐标轴分割线
+                    }
+
+                },
+                yAxis: {
+
+                    show:true,
+                    //show: false,//隐藏y轴
+                    splitLine:{//坐标轴分割线
                         show:true,
 
-                     },
+                    },
 
-                     axisLabel:{
+                    axisLabel:{
 
-                         formatter:"{value}%"
-                     }
+                        formatter:"{value}%"
+                    }
                     /* data: ["0%","0.05%","0.10%","0.15%","0.2%","0.25%"]*/
-                 },//Y轴线坐标
+                },//Y轴线坐标
 
                 series: [{
                     name: '广告资源产出占比',
                     type: 'line',
-                    data: result.xcount
+                    data:result.xcount,
                 },
 
 
@@ -225,6 +233,178 @@
 
         }
     });
+
+    $(function() {
+
+        $('#select').on('change', function() {
+            /*初始化init echarts表格*/
+            // 基于准备好的dom，初始化echarts实例
+
+            var val = $(this).val();
+            console.log("select-value____"+val)
+           if(val==1){
+               console.log("select-value1____"+val)
+
+
+             if(val==2){
+
+                 console.log("select-value2____"+val)
+                 //发送ajax查询数据
+                 $.ajax({
+                     //url:"${pageContext.request.contextPath}/back/echats1.json",
+                     url:"${pageContext.request.contextPath}/xiaoliang/findAll.do",
+                     dataType:"json",
+                     type:"post",
+                     success:function (result) {
+                         // var time=result.xname;
+                         // console.log("time----"+time);
+                         //13位时间戳转换为10位的
+                         //var str2int = parseInt(time);
+                         //var timeStampSec = (str2int/1000);
+                         //console.log("timeStampSec----"+timeStampSec);
+                         // var timestamp = String.format("%010d", time);
+                         // var xname=changeDate(result.xname);
+                         //  console.log("xname----"+xname)
+
+                         //var dt=time;
+                         // var tstr = JSON.stringify(time);
+                         // console.log("tstr----"+tstr)
+
+                         //设置当前echarts表格的配置
+                         // 指定图表的配置项和数据
+                         // var base =+new Date(2018,07,24);
+                         //  var oneDay=24*3600;
+                         //  var date=[Math.random()*300];
+                         //  for (var i=1;i<20000;i++){
+                         //   var now= new Date(base+=oneDay);
+                         //  date.push([now.getFullYear(),now.getMonth()+1,now.getDate()].join('/'));
+                         //  data.push(Math.round((Math.random()-0.5)*20+data[i-1]));
+
+                         //  }
+                         var option = {
+                             backgroundColor: '#b8eecf',
+                             /*   dataZoom:[{
+                                    startValue: "2018-07-24"
+                                },{
+                                    type:"inside"
+
+                                }],*/
+                             title: {
+                                 //text: 'ECharts统计图'
+                             },
+
+                             legend: {//图例
+                                 data:['广告资源产出占比'],
+                                 //data:['日期'],
+
+
+                             },
+                             tooltip:{
+                                 // trigger:"axis",//提示框，该列所有坐标轴所对应的数据
+                                 axisPointer:{
+                                     type:"cross",
+                                     label:{
+                                         backgroundColor:"#ccc",
+                                         borderColor:"#aaa",
+                                         borderWidth:1,
+                                         shadowOffsetX:0,
+                                         shadowOffsetY:0,
+                                         textStyle:{
+                                             color:"#222"
+
+                                         }
+                                     }
+                                 },
+                                 /*  formatter:function(data){
+                                       return data.xname+"<br/>"+data.xcount+"%";
+                                   }*/
+
+                             },
+                             grid: {
+                                 left: '10%',
+                                 bottom:'20%'
+                             },
+
+                             xAxis: {//x轴线坐标
+                                 // type: 'time',
+                                 axisTick: {//去掉轴线上的分割线
+                                     show: false
+                                 },
+                                 //  show:true,
+                                 // splitLine:{//坐标轴
+                                 //    show:true
+                                 // },
+                                 type:"category",
+                                 // boundaryGap:false,
+
+                                 /* dataZoom:[{
+                                      startValue: "2018-07-24"
+                                  },{
+                                      type:"inside"
+
+                                  }],*/
+                                 //  data:result.xname,
+
+                                 data:result.xname,
+                                 axisLabel:{
+                                     show:true,
+                                     interval:"0",
+                                     rotate:20,
+                                     margin:24,
+
+
+                                     formatter:"{value}日",
+
+
+                                     textStyle:{
+                                         color:"#808080",
+                                         fontFamily:"sans-serif",
+                                         fontSize:4,
+                                         fontStyle:"italic",
+                                         fontWeight:"bold"
+                                     }
+
+
+                                 }
+
+                             },
+                             yAxis: {
+
+                                 show:true,
+                                 //show: false,//隐藏y轴
+                                 splitLine:{//坐标轴分割线
+                                     show:true,
+
+                                 },
+
+                                 axisLabel:{
+
+                                     formatter:"{value}%"
+                                 }
+                                 /* data: ["0%","0.05%","0.10%","0.15%","0.2%","0.25%"]*/
+                             },//Y轴线坐标
+
+                             series: [{
+                                 name: '广告资源产出占比',
+                                 type: 'line',
+                                 data: result.amount
+                             },
+
+
+                             ]
+
+                         };
+                         // 使用刚指定的配置项和数据显示图表。
+                         myChart2.setOption(option);
+
+                     }
+                 });
+
+             }
+           }
+        });
+    });
+
 
 
     function  findxl(){

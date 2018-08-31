@@ -25,12 +25,12 @@
                     $('#tt').tabs('close',"大数支出");
                     AddTab("概况", "${pageContext.request.contextPath }/ceshi.html" );
                     AddTab("广告资源", "${pageContext.request.contextPath }/xiaoliang.jsp" );
-                    AddTab("大数据资源", "${pageContext.request.contextPath }/index.jsp" );
+                    AddTab("大数据资源", "${pageContext.request.contextPath }/echarts1.jsp" );
                     AddTab("渠道资源", "${pageContext.request.contextPath }/ceshi.html" );
-                    AddTab("自动外呼资源", "${pageContext.request.contextPath }/index.jsp" );
-                    AddTab("机器人资源", "${pageContext.request.contextPath }/echarts2.jsp" );
+                    AddTab("自动外呼资源", "${pageContext.request.contextPath }/echarts2.jsp" );
+                    AddTab("机器人资源", "${pageContext.request.contextPath }/echarts1.jsp" );
                     AddTab("App推广", "${pageContext.request.contextPath }/index.jsp" );
-                    AddTab("流失资源", "${pageContext.request.contextPath }/echarts2.jsp" );
+                    AddTab("流失资源", "${pageContext.request.contextPath }/echarts1.jsp" );
 
 
 
@@ -48,10 +48,10 @@
                 $('#tt').tabs('close',"App推广");
                 $('#tt').tabs('close',"流失资源");
                 AddTab("明细", "${pageContext.request.contextPath }/index.jsp" );
-                AddTab("广告费用", "${pageContext.request.contextPath }/echarts2.jsp" );
+                AddTab("广告费用", "${pageContext.request.contextPath }/echarts1.jsp" );
                 AddTab("销售费用", "${pageContext.request.contextPath }/ceshi.html" );
-                AddTab("渠道费用", "${pageContext.request.contextPath }/echarts2.jsp" );
-                AddTab("大数支出", "${pageContext.request.contextPath }/echarts2.jsp" );
+                AddTab("渠道费用", "${pageContext.request.contextPath }/echarts1.jsp" );
+                AddTab("大数支出", "${pageContext.request.contextPath }/echarts1.jsp" );
 
 
             })
@@ -80,15 +80,7 @@
                 var s = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:' + tabHeight + 'px;"></iframe>';
                 return s;
             }
-     /*   function closeAll() {
-            $("#tt").each(function(index, obj) {
-                //获取所有可关闭的选项卡
-              //  var tab = $(".tabs-closable", this).text();
-                $(".easyui-tabs").tabs('close');
-            });
 
-        }
-*/
 
         //这个事件的目的是：当我们点击时变色
         function changeColor(obj)
@@ -101,6 +93,8 @@
 
             var m2= $('#m2');
             var dm2=m2[0];//dom对象转换
+
+
 
             if(m1.is(obj)){
                 console.log("m1-1--"+dm1+"m2--1-"+dm2)
@@ -124,11 +118,11 @@
     <div  align="center" style="font-size: 24px;color: darkred;font-family: 楷体;padding-top: 10px">zjcf财务资源系统</div>
 </div>
 
-<div data-options="region:'west',title:'导航菜单',split:true" style="font-size: 18px;font-family: 楷体;width:200px;height:120px">
+<div data-options="region:'west',title:'导航菜单',split:true" style="font-size: 28px;font-family: 楷体;width:200px;height:120px">
     <br>
-    <div id="m1"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:40px;font-size: 18px;width:240px">资源统计</div>
+    <div id="m1"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:30px;font-size:18px;width:90px">[资源统计]</div>
     <br> <br> <br>
-    <div id="m2"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:40px;font-size: 18px;width:240px">费用结算</div>
+    <div id="m2"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:30px;font-size: 18px;width:90px">[费用结算]</div>
 </div>
 <div data-options="region:'center'" >
     <div id="tt" class="easyui-tabs" data-options="fit:true,pill:true,narrow:true" style="width:500px;height:250px;">
