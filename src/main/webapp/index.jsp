@@ -1,190 +1,133 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html; utf-8" pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
-<head><script type="text/javascript">
-   /* $(function() {
-        //定义数据表格
-        $('#userdg').datagrid({
-            loadMsg: "Loading..",//远程加载展示字段
-            showFooter: true,
-            fitColumns: true,//自动展开/收缩列的大小，以适应网格的宽度
-            //title : 'PictMessages',//标题
-            striped: true,//展示斑马线
-            remoteSort: false,
-            ctrlSelect: true,//可多选
-            rownumbers: true,// 显示行号
-            selectOnCheck: true,//选中行是否可以选中框
-            checkOnSelect: true,//如果为true，当用户点击行的时候该复选框就会被选中或取消选中。
-            //如果为false，当用户仅在点击该复选框的时候才会呗选中或取消
-            //singleSelect : false,//如果为true，则只允许选择一行
-            columns: [[{
-                field: 'ckbox',
-                checkbox: true,
-            },
-                {
-                    field: 'dept',
-                    title: '部门',
-                    width: 100,
-                    height: 100,
-                    align: 'center',
-                    formatter:function(val,row,index){
-                        return row.dept;
-                    }
-                },
-                {
-                    field: 'name',
-                    title: '主管',
-                    width: 100,
-                    height: 100,
-                    align: 'center',
-                },
+<head>
+    <title>zjcf系统</title>
+
+    <%--引入goeasy的JS文件--%>
+    <script src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/back/themes/icon.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/back/themes/default/easyui.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/back/themes/IconExtension.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/back/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/back/echarts.js"></script>
+
+    <script type="text/javascript">
+          function zdie(){
+              $(".easyui-layout").layout('collapse','west');
+
+          }
+
+        $(function(){
+           // $(".easyui-layout").layout('collapse','north');
+          //  $(".easyui-layout").layout('collapse','west');
+            //easyui-layout的布局增加隐藏布局的情况下，显示title
+            var buttonDir = {north:'down',south:'up',east:'left',west:'right'};
+            $.extend($.fn.layout.paneldefaults,{
+                onBeforeCollapse:function(){
+                    /**/
+                    var popts = $(this).panel('options');
+                    var dir = popts.region;
+                    var btnDir = buttonDir[dir];
+                    if(!btnDir) return false;
+
+                    setTimeout(function(){
+                        var pDiv = $('.layout-button-'+btnDir).closest('.layout-expand').css({
+                            textAlign:'center',lineHeight:'18px',fontWeight:'bold'
+                        });
+
+                        if(popts.title){
+                            var vTitle = popts.title;
+                            if(dir == "east" || dir == "west"){
+                                var vTitle = popts.title.split('').join('<br/>');
+                                pDiv.find('.panel-body').html(vTitle);
+                            }else{
+                                $('.layout-button-'+btnDir).closest('.layout-expand').find('.panel-title')
+                                    .css({textAlign:'left'})
+                                    .html(vTitle)
+                            }
+
+                        }
+                    },100);
+
+                }
+            });
 
 
-
-                {
-                    field: 'num',
-                    title: '人数',
-                    width: 100,
-                    height: 100,
-                    align: 'center',
-                    formatter:function(val,row,index){
-                        return row.num;
-                    }
-
-                },
-
-
-
-
-                {
-                    field: 'state',
-                    title: '用户状态',
-                    width: 100,
-                    height: 100,
-                    align: 'center',
-                },
-            ]
-            ],
-
-            //datagrid自定义工具
-            toolbar:[
-
-            ],
-
-            //加入分页控件
-            pagination : true,//底部展示工具栏
-            pagePosition : 'bottom',//分页栏的位置
-            pageNumber : 1,//默认展示第几页
-            pageSize : 5,//默认每页展示的条数
-            pageList : [ 5, 10, 15, 20 ],//可选择每页展示数据
         });
-    });
-
-*/
-</script>
-
+    </script>
 </head>
-
-<body>
-<h4>indext.jsp</h4>
-
-<table id="userdg" class="easyui-datagrid">
-</table>
+<body class="easyui-layout">
 
 
+<div data-options="region:'west',split:true" style="width:200px;height:400px">
+    <div  style="height:60px">
+        <div  align="left"><img src="${pageContext.request.contextPath }/back/log.bmp" width:200px></div>
+    </div>
+    <div  >
+    <ul id="tt1" class="easyui-tree" >
+        <li  >
+            <span><a href="${pageContext.request.contextPath }/index.jsp">首页</a></span>
+            <ul>
+                <li>
+                    <span>报表-北京</span>
+                    <ul>
+                        <li>
+                            <span><a href="${pageContext.request.contextPath }/xiaoshou.jsp" target="myframe">销售排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="${pageContext.request.contextPath }/xiaoshou.jsp" target="myframe">销售报表</a></span>
+                        </li>
+                    </ul>
+                </li>
+                <li   >
+                    <span>报表-长沙</span>
 
-
-
-
-<!-- 提交按钮 -->
-<div id="tool" style="display: none">
-    <a class="easyui-linkbutton" href="javascript:void(0)" id="sub"
-       data-options="iconCls:'icon-ok',onClick:sub">提交</a> <a
-        class="easyui-linkbutton" href="javascript:void(0)" id="remove"
-        data-options="iconCls:'icon-remove',onClick:remove">重置</a>
+                    <ul>
+                        <li>
+                            <span><a href="#">新单排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">升级排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">新单销售报表</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">精英销售报表</a></span>
+                        </li>
+                    </ul>
+                </li>
+                <li   >
+                    <span>分析</span>
+                    <ul>
+                        <li>
+                            <span><a href="#">销售分布</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">投入产出分析</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">逐月产出分析</a></span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </li>
+    </ul>
+    </div>
 </div>
-
-
+<div data-options="region:'center'" >
+   <%--<div  style="height: 30px"> <input id="zd" type="button" value="折叠" onclick="zdie()"></div>--%>
+    <div  style="height: 50px"> <img id="zd" src="${pageContext.request.contextPath }/back/zedie.bmp" onclick="zdie()" ></div>
+    <div id="tt" class="easyui-tabs" data-options="fit:true,pill:true,narrow:true" style="width:500px;height:250px;">
+        <%--<div title="主页"> </div>--%>
+            <iframe name="myframe" width="900" height="600" />
+    </div>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

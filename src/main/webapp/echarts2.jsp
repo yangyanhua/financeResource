@@ -117,6 +117,7 @@
             //  }
             var option = {
                 backgroundColor: '#b8eecf',
+                closable:false,
                 /*   dataZoom:[{
                        startValue: "2018-07-24"
                    },{
@@ -283,6 +284,7 @@
                          //  }
                          var option = {
                              backgroundColor: '#b8eecf',
+                             closable:false,
                              /*   dataZoom:[{
                                     startValue: "2018-07-24"
                                 },{
@@ -429,6 +431,7 @@
                 console.log("result+++++---"+result)
                 var option = {
                     backgroundColor: '#b8eecf',
+                    closable:false,
                     title: {
                         //text: 'ECharts统计图'
                     },

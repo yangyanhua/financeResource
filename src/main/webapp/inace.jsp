@@ -126,10 +126,58 @@
 </div>
 
 <div data-options="region:'west',title:'导航菜单',split:true" style="font-size: 28px;font-family: 楷体;width:200px;height:120px">
-    <br>
-    <div id="m1"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:30px;font-size:18px;width:90px">[资源统计]</div>
-    <br> <br> <br>
-    <div id="m2"  class="tabs-inner" onclick="changeColor(this)" style="position:relative;left:30px;font-size: 18px;width:90px">[费用结算]</div>
+    <ul id="tt1" class="easyui-tree">
+        <li>
+            <span><a href="#">首页</a></span>
+            <ul>
+                <li>
+                    <span>报表-北京</span>
+                    <ul>
+                        <li>
+                            <span><a href="${pageContext.request.contextPath }/xiaoliang.jsp" target="myframe">销售排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="${pageContext.request.contextPath }/echarts1.jsp" target="myframe">销售报表</a></span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span>报表-长沙</span>
+
+                    <ul>
+                        <li>
+                            <span><a href="#">新单排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">升级排名</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">新单销售报表</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">精英销售报表</a></span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span>分析</span>
+                    <ul>
+                        <li>
+                            <span><a href="#">销售分布</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">投入产出分析</a></span>
+                        </li>
+                        <li>
+                            <span><a href="#">逐月产出分析</a></span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </li>
+    </ul>
 </div>
 <div data-options="region:'center'" >
     <div id="tt" class="easyui-tabs" data-options="fit:true,pill:true,narrow:true" style="width:500px;height:250px;">

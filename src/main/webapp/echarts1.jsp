@@ -50,9 +50,11 @@
 <form>
     <table>
         <tr >
-            <td id="td1" >消费</td>
-            <td  id="td2">||销售||</td>
-            <td  id="td3">产出</td>
+            <td id="td1" class="td" onclick="changeTd(this)">消费</td>
+            <td  >||</td>
+            <td  id="td2" class="td" onclick="changeTd(this)">销售</td>
+            <td  >||</td>
+            <td  id="td3" class="td" onclick="changeTd(this)">产出</td>
 <td><select id="select" style="background-color: #b8eecf;position: relative;left:500px">
     <option value="1">消费</option>
     <option value="2">销售</option>
@@ -109,6 +111,10 @@
         }
     });
 
+
+
+
+
     $('#select').on('change', function() {
         var val = $(this).val();
        if(val==1){
@@ -138,6 +144,7 @@
 
             myChart.setOption({
                 backgroundColor: '#b8eecf',
+                closable:false,
                 /*   dataZoom:[{
                        startValue: "2018-07-24"
                    },{
@@ -254,6 +261,7 @@
                 yData = (result.amount);
                 myChart.setOption({
                     backgroundColor: '#b8eecf',
+                    closable:false,
                     /*   dataZoom:[{
                            startValue: "2018-07-24"
                        },{
@@ -394,6 +402,7 @@
                 if(val==1) {
                     var option = {
                         backgroundColor: '#b8eecf',
+                        closable:true,
                         title: {
                             //text: 'ECharts统计图'
                         },
@@ -485,6 +494,7 @@
                     if(val==2){
                         var option = {
                             backgroundColor: '#b8eecf',
+                            closable:false,
                             title: {
                                 //text: 'ECharts统计图'
                             },
@@ -682,6 +692,30 @@
     });
    });
   */
+  /* function changeTd(obj) {
+
+
+       var tx = obj.innerText;
+       console.log("tx-----"+tx);
+       if (tx == "消费") {
+           //var options = $("#select option:selected");
+        //   $("#select").val("1");
+           //console.log("options-----"+options.innerText);
+       }
+       if (tx == "销售") {
+          // var options = $("#select option:selected");
+          // options.innerText = 2;
+          // $("#select").val("2");
+          // console.log("options222-----"+options.innerText);
+       }
+       if (tx == "产出") {
+          // var options = $("#select option:selected");
+         //  options.innerText = 3;
+
+       }
+
+   }*/
+
 
 
 
